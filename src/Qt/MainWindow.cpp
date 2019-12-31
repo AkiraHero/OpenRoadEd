@@ -28,7 +28,7 @@ MainWindow::MainWindow(OSGMain *osgMain, OpenDrive *openDrive)
 	initToolbars();
 
 	// Resizes the window
-//	resize(1280,800);
+	resize(1280,800);
 	
 	// Reads the last used / default settings
 	readSettings();

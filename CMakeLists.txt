@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.5)
 project(OpenRoadEd)
 
+add_compile_options(-fPIC)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_BUILD_TYPE Debug)
 find_package(Qt5Core REQUIRED)
@@ -14,10 +15,7 @@ FIND_PACKAGE(osgDB)
 FIND_PACKAGE(osgUtil)
 FIND_PACKAGE(osgGA)
 FIND_PACKAGE(osgViewer)
-include_directories(Qt5OpenGL_INCLUDE_DIR)
-include_directories(Qt5Gui_INCLUDE_DIR)
-include_directories(Qt5Core_INCLUDE_DIR)
-include_directories(Qt5Widgets_INCLUDE_DIR)
+
 include_directories(.)
 
 include_directories(${EIGEN3_INCLUDE_DIR})
@@ -36,7 +34,6 @@ file(GLOB_RECURSE SRCS_CEPHES ./src/Cephes/*.cpp ./src/Cephes/*.h ./src/Cephes/*
 file(GLOB_RECURSE SRCS_XML ./src/TinyXML/*.cpp ./src/TinyXML/*.h)
 
 
-INCLUDE_DIRECTORIES(${OPENSCENEGRAPH_INCLUDE_DIRS})
 add_library(xml
         ${SRCS_XML}
         )
@@ -54,12 +51,9 @@ add_library(opendrive
         ${SRCS_OPENDRIVE}
         )
 
-include_directories(Qt5OpenGL_INCLUDE_DIR)
-include_directories(Qt5Gui_INCLUDE_DIR)
-include_directories(Qt5Core_INCLUDE_DIR)
-include_directories(Qt5Widgets_INCLUDE_DIR)
-include_directories(.)
 
+include_directories(${Qt5Core_INCLUDE_DIRS})
+message("${Qt5Core_INCLUDE_DIRS}")
 add_library(
         osglib
         ${SRCS_OSG}

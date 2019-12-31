@@ -1,7 +1,8 @@
 #ifndef OSGMAIN_H
 #define OSGMAIN_H
 
-//#include "../Qt/QtHeader.h"
+#include <QCoreApplication>
+#include "QDebug"
 
 #include <osg/Version>
 #include <osgDB/ReadFile>
@@ -21,6 +22,7 @@
 #include <osgGA/StateSetManipulator>
 #include <osgGA/AnimationPathManipulator>
 #include <osgGA/TerrainManipulator>
+
 
 
 typedef osgViewer::GraphicsWindowX11::WindowData WindowData;
@@ -360,7 +362,8 @@ public:
 			// save render buffer to file
 			osg::ref_ptr<osg::Image> scrImage = new osg::Image;
 			scrImage->readPixels( 0, 0, mScreenshotRequest->GetWidth(), mScreenshotRequest->GetHeight(), GL_RGB, GL_UNSIGNED_BYTE );
-			osgDB::writeImageFile( *scrImage, "ScreenShots/Screenshot.jpg" );
+//            qDebug() << QCoreApplication::applicationDirPath();
+			bool suc = osgDB::writeImageFile( *scrImage, QCoreApplication::applicationDirPath().toStdString() + "/Screenshot.jpg" );
 
 			// done, reset request
 			mScreenshotRequest->SetTakeScreenshotFlag(false);

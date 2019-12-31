@@ -62,7 +62,7 @@ osg::ref_ptr<osg::PositionAttitudeTransform> OSGJunction::DrawJunction (vector<R
 			if (!roadImage) 
 			{
 				osg::notify(osg::WARN) << "Couldn't load texture, loading default image file."  << std::endl;
-				roadImage = osgDB::readImageFile(":Resources/noTexture.jpg");
+				roadImage = osgDB::readImageFile(resourcePath + "Resources/noTexture.jpg");
 				if (!roadImage) 
 				{
 					osg::notify(osg::WARN) << "Couldn't load texture."  << std::endl;

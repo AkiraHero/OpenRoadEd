@@ -112,38 +112,38 @@ void OSGRecordsHelpers::FillHelperGroups (Road *road,unsigned int roadIndex, osg
 	//Basic parameters
 	for (unsigned int i = 0; i<road->GetRoadTypeCount(); i++)
 	{
-		iconName=":Resources/Billboards/RoadType.jpg";
+        iconName=resourcePath + "Resources/Billboards/RoadType.jpg";
 		mRoadTypeGroup->addChild(AddRecordHelper(road->GetRoadType(i)->GetS(),tmpOffset*7 ,0 ,ROAD_TYPE_NODE, iconName ).get());
 	}
 
 	for (unsigned int i = 0; i<road->GetGeometryBlockCount(); i++)
 	{
-		iconName=":Resources/Billboards/Turn.jpg";
+        iconName=resourcePath + "Resources/Billboards/Turn.jpg";
 		mGeometryBlockGroup->addChild(AddRecordHelper(road->GetGeometryBlock(i)->GetGeometryAt(0)->GetS(),tmpOffset*6 ,0 ,GEOMETRY_BLOCK_NODE, iconName).get());
 	}
 
 	for (unsigned int i = 0; i<road->GetElevationCount(); i++)
 	{
-		iconName=":Resources/Billboards/Elevation.jpg";
+        iconName=resourcePath + "Resources/Billboards/Elevation.jpg";
 		mElevationGroup->addChild(AddRecordHelper(road->GetElevation(i)->GetS(),tmpOffset*5 ,0,ELEVATION_NODE,iconName).get());
 	}
 
 	for (unsigned int i = 0; i<road->GetSuperElevationCount(); i++)
 	{
-		iconName=":Resources/Billboards/SuperElevation.jpg";
+        iconName=resourcePath + "Resources/Billboards/SuperElevation.jpg";
 		mSuperElevationGroup->addChild(AddRecordHelper(road->GetSuperElevation(i)->GetS(),tmpOffset*4 ,0,SUPERELEVATION_NODE,iconName).get());
 	}
 
 	for (unsigned int i = 0; i<road->GetCrossfallCount(); i++)
 	{
-		iconName=":Resources/Billboards/Crossfall.jpg";
+        iconName=resourcePath + "Resources/Billboards/Crossfall.jpg";
 		mCrossfallGroup->addChild(AddRecordHelper(road->GetCrossfall(i)->GetS(),tmpOffset*3 ,0,CROSSFALL_NODE,iconName).get());
 	}
 
 	//Lane sections
 	for (unsigned int i = 0; i<road->GetLaneSectionCount(); i++)
 	{
-		iconName=":Resources/Billboards/LaneSection.jpg";
+        iconName=resourcePath + "Resources/Billboards/LaneSection.jpg";
 		osg::ref_ptr<osg::Group> laneSection=new osg::Group;
 		laneSection->setName("laneSection");
 		mLaneSectionGroup->addChild(laneSection.get() );
@@ -207,44 +207,44 @@ void OSGRecordsHelpers::FillHelperGroups (Road *road,unsigned int roadIndex, osg
 			for (unsigned int k=0; k<lane->GetLaneWidthCount();k++)
 			{
 
-				iconName=":Resources/Billboards/LaneWidth.jpg";
+                iconName=resourcePath + "Resources/Billboards/LaneWidth.jpg";
 				laneWidthGroup->addChild(AddRecordHelper(lane->GetLaneWidth(k)->GetS()+laneSectionOffset,tmpOffset*1 ,tmpOffset*j,LANE_WIDTH_NODE,iconName,currColor));
 			}
 
 			//Road Mark
 			for (unsigned int k=0; k<lane->GetLaneRoadMarkCount();k++)
 			{
-				iconName=":Resources/Billboards/LaneRoadMark.jpg";
+                iconName=resourcePath + "Resources/Billboards/LaneRoadMark.jpg";
 				laneRoadMarkGroup->addChild(AddRecordHelper(lane->GetLaneRoadMark(k)->GetS()+laneSectionOffset,tmpOffset*0 ,tmpOffset*j,LANE_ROAD_MARK_NODE,iconName,currColor));
 			}
 			//Lane Material
 			for (unsigned int k=0; k<lane->GetLaneMaterialCount();k++)
 			{
-				iconName=":Resources/Billboards/LaneMaterial.jpg";
+                iconName=resourcePath + "Resources/Billboards/LaneMaterial.jpg";
 				laneMaterialGroup->addChild(AddRecordHelper(lane->GetLaneMaterial(k)->GetS()+laneSectionOffset,tmpOffset*-1 ,tmpOffset*j,LANE_MATERIAL_NODE,iconName,currColor));
 			}
 			//Lane Visibility
 			for (unsigned int k=0; k<lane->GetLaneVisibilityCount();k++)
 			{
-				iconName=":Resources/Billboards/LaneVisibility.jpg";
+                iconName=resourcePath + "Resources/Billboards/LaneVisibility.jpg";
 				laneVisibilityGroup->addChild(AddRecordHelper(lane->GetLaneVisibility(k)->GetS()+laneSectionOffset,tmpOffset*-2 ,tmpOffset*j,LANE_VISIBILITY_NODE,iconName,currColor));
 			}
 			//Lane Speed
 			for (unsigned int k=0; k<lane->GetLaneSpeedCount();k++)
 			{
-				iconName=":Resources/Billboards/LaneSpeed.jpg";
+                iconName=resourcePath + "Resources/Billboards/LaneSpeed.jpg";
 				laneSpeedGroup->addChild(AddRecordHelper(lane->GetLaneSpeed(k)->GetS()+laneSectionOffset,tmpOffset*-3 ,tmpOffset*j,LANE_SPEED_NODE,iconName,currColor));
 			}
 			//Lane Access
 			for (unsigned int k=0; k<lane->GetLaneAccessCount();k++)
 			{			
-				iconName=":Resources/Billboards/LaneAccess.jpg";
+                iconName=resourcePath + "Resources/Billboards/LaneAccess.jpg";
 				laneAccessGroup->addChild(AddRecordHelper(lane->GetLaneAccess(k)->GetS()+laneSectionOffset,tmpOffset*-4 ,tmpOffset*j,LANE_ACCESS_NODE,iconName,currColor));
 			}
 			//Lane Height
 			for (unsigned int k=0; k<lane->GetLaneHeightCount();k++)
 			{
-				iconName=":Resources/Billboards/LaneHeight.jpg";
+                iconName=resourcePath + "Resources/Billboards/LaneHeight.jpg";
 				laneHeightGroup->addChild(AddRecordHelper(lane->GetLaneHeight(k)->GetS()+laneSectionOffset,tmpOffset*-5 ,tmpOffset*j,LANE_HEIGHT_NODE,iconName,currColor));
 			}
 			laneNum++;
@@ -253,13 +253,13 @@ void OSGRecordsHelpers::FillHelperGroups (Road *road,unsigned int roadIndex, osg
 	////Objects and Signals
 	//for (unsigned int i = 0; i<road->GetObjectCount(); i++)
 	//{
-	//	iconName=":Resources/Billboards/Object.jpg";
+    //	iconName=resourcePath + "Resources/Billboards/Object.jpg";
 	//	mObjectGroup->addChild(AddRecordHelper(road->GetObject(i)->GetS(),tmpOffset*-6 ,0,OBJECT_NODE,iconName).get()));
 	//}
 	//
 	//for (unsigned int i = 0; i<road->GetSignalCount(); i++)
 	//{
-	//	iconName=":Resources/Billboards/Signal.jpg";
+    //	iconName=resourcePath + "Resources/Billboards/Signal.jpg";
 	//	mSignalGroup->addChild(AddRecordHelper(road->GetSignal(i)->GetS(),tmpOffset*-7 ,0,SIGNAL_NODE,iconName).get()));
 	//}
 }
@@ -335,7 +335,7 @@ osg::ref_ptr<osg::MatrixTransform> OSGRecordsHelpers::AddRecordHelper(double s, 
 	osg::Image *billboardIconImage = osgDB::readImageFile(iconName);
 	if (!billboardIconImage) 
 	{
-		billboardIconImage = osgDB::readImageFile(":Resources/noTexture.jpg");
+        billboardIconImage = osgDB::readImageFile(resourcePath + "Resources/noTexture.jpg");
 		if (!billboardIconImage) 
 		{
 			return matrix.get();

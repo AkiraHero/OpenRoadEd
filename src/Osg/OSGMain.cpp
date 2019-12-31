@@ -342,14 +342,14 @@ void OSGMain::DrawRoads()
 		if (mOpenDrive->GetRoad(i)->GetRoadJunction().compare("-1")==0)
 		{
 			//draw it
-			mRoadsGroup->addChild(mOsgRoad->DrawRoad(mOpenDrive->GetRoad(i),i,ROAD_STEP, mOsgScenery->GetRoadConstraintVerticesVector(),":Resources/asphaltAlpha.tga",true,":Resources/roadMarks.tga", 0));
+			mRoadsGroup->addChild(mOsgRoad->DrawRoad(mOpenDrive->GetRoad(i),i,ROAD_STEP, mOsgScenery->GetRoadConstraintVerticesVector(),resourcePath + "Resources/asphaltAlpha.tga",true,resourcePath + "Resources/roadMarks.tga", 0));
 			mHelpersGroup->addChild(mOsgRoad->DrawDirectionArrow(mOpenDrive->GetRoad(i)));
 
 		}
 		else
 		{
 			//else add just the tracks with alpha channel
-			mRoadsGroup->addChild(mOsgRoad->DrawRoad(mOpenDrive->GetRoad(i),i,JUNCTION_STEP, mOsgScenery->GetRoadConstraintVerticesVector(),":Resources/asphaltClear.jpg",false,":Resources/roadMarks.tga", 2));
+			mRoadsGroup->addChild(mOsgRoad->DrawRoad(mOpenDrive->GetRoad(i),i,JUNCTION_STEP, mOsgScenery->GetRoadConstraintVerticesVector(),resourcePath + "Resources/asphaltClear.jpg",false,resourcePath + "Resources/roadMarks.tga", 2));
 			mHelpersGroup->addChild(mOsgRoad->DrawDirectionArrow(mOpenDrive->GetRoad(i)));
 		}
 
@@ -412,13 +412,13 @@ void OSGMain::RedrawRoad(unsigned int roadIndexToRedraw)
 		//draw the helper arrow as well
 		if (mOpenDrive->GetRoad(roadIndexToRedraw)->GetRoadJunction().compare("-1")==0)
 		{
-			mOsgRoad->RedrawRoad(roadGeoms,mOpenDrive->GetRoad(roadIndexToRedraw),roadIndexToRedraw,ROAD_STEP,mOsgScenery->GetRoadConstraintVerticesVector(),":Resources/asphaltAlpha.tga",true,":Resources/roadMarks.tga", 0) ;
+			mOsgRoad->RedrawRoad(roadGeoms,mOpenDrive->GetRoad(roadIndexToRedraw),roadIndexToRedraw,ROAD_STEP,mOsgScenery->GetRoadConstraintVerticesVector(),resourcePath + "Resources/asphaltAlpha.tga",true,resourcePath + "Resources/roadMarks.tga", 0) ;
 
 			mOsgRoad->RedrawDirectionArrow(matrix, mOpenDrive->GetRoad(roadIndexToRedraw));
 		}
 		else
 		{
-			mOsgRoad->RedrawRoad(roadGeoms,mOpenDrive->GetRoad(roadIndexToRedraw),roadIndexToRedraw,ROAD_STEP,mOsgScenery->GetRoadConstraintVerticesVector(),":Resources/asphaltClear.jpg",false,":Resources/roadMarks.tga", 2) ;
+			mOsgRoad->RedrawRoad(roadGeoms,mOpenDrive->GetRoad(roadIndexToRedraw),roadIndexToRedraw,ROAD_STEP,mOsgScenery->GetRoadConstraintVerticesVector(),resourcePath + "Resources/asphaltClear.jpg",false,resourcePath + "Resources/roadMarks.tga", 2) ;
 
 			mOsgRoad->RedrawDirectionArrow(matrix, mOpenDrive->GetRoad(roadIndexToRedraw));
 		}
@@ -451,7 +451,7 @@ void OSGMain::DrawJunctions()
 	for (unsigned int j=0; j<mOpenDrive->GetJunctionCount(); j++)
 	{
 		//draw the junction plane
-		mJunctionsGroup->addChild(mOsgJunction->DrawJunction(mOpenDrive->GetRoadVector(),j,mOpenDrive->GetJunction(j)->GetId(), mRoadsGroup,":Resources/asphaltAlpha.tga" ));
+		mJunctionsGroup->addChild(mOsgJunction->DrawJunction(mOpenDrive->GetRoadVector(),j,mOpenDrive->GetJunction(j)->GetId(), mRoadsGroup,resourcePath + "Resources/asphaltAlpha.tga" ));
 	}
 
 	//STATISTICS
@@ -679,7 +679,7 @@ void  OSGMain::DrawReferencePlane(double xMin, double xMax, double yMin,double y
 
 	if (!image) 
 	{
-		image = osgDB::readImageFile(":Resources/noTexture.jpg");
+		image = osgDB::readImageFile(resourcePath + "Resources/noTexture.jpg");
 
 		osg::notify(osg::WARN) << "Couldn't load texture."  << std::endl;
 

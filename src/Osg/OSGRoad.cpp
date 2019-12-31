@@ -512,7 +512,7 @@ void OSGRoad::CreateRoadGeometry (vector<osg::ref_ptr<osg::Geometry>> &geometrie
 	osg::Image *roadImage = osgDB::readImageFile(roadTextureFile);
 	if (!roadImage) 
 	{
-		roadImage = osgDB::readImageFile(":Resources/noTexture.jpg");
+		roadImage = osgDB::readImageFile(resourcePath + "Resources/noTexture.jpg");
 
 		osg::notify(osg::WARN) << "Couldn't load texture."  << std::endl;
 
@@ -561,7 +561,7 @@ void OSGRoad::CreateRoadGeometry (vector<osg::ref_ptr<osg::Geometry>> &geometrie
 		osg::Image *roadMarksImage = osgDB::readImageFile(roadMarksTextureFile);
 		if (!roadMarksImage) 
 		{
-			roadMarksImage = osgDB::readImageFile(":Resources/noTexture.jpg");
+			roadMarksImage = osgDB::readImageFile(resourcePath + "Resources/noTexture.jpg");
 
 			osg::notify(osg::WARN) << "Couldn't load texture."  << std::endl;
 

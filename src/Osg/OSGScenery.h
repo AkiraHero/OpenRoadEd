@@ -1,5 +1,6 @@
 #ifndef OSGSCENERY_H
 #define OSGSCENERY_H
+#include "resourcepath.hpp"
 
 #include <vector>
 #include <osg/Node>

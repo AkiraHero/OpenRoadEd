@@ -1,5 +1,6 @@
 #ifndef OSGROAD_H
 #define OSGROAD_H
+#include "resourcepath.hpp"
 
 #include <vector>
 #include <osg/Version>

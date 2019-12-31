@@ -3,6 +3,7 @@
 
 #include "OSGObjectNode.h"
 #include "../OpenDrive/Road.h"
+#include "./resourcepath.hpp"
 /**
 * Records helpers class. Used to generate the geometry (billboards and other glyphs) to display the position and orientation of the various road records
 *

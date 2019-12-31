@@ -1,6 +1,7 @@
 #ifndef OSGJUNCTION_H
 #define OSGJUNCTION_H
 
+#include "resourcepath.hpp"
 #include <osg/PositionAttitudeTransform>
 #include "OSGObjectNode.h"
 #include "../OpenDrive/Road.h"

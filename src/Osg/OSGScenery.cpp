@@ -248,11 +248,11 @@ osg::ref_ptr<osg::Geode>  OSGScenery::DrawScenery(std::string heightMapFile, std
 	geometry->setColorBinding(osg::Geometry::BIND_OVERALL);
 
 	// load image for texture
-	osg::Image *image = osgDB::readImageFile(":Resources/grass.jpg");
+	osg::Image *image = osgDB::readImageFile(resourcePath + "Resources/grass.jpg");
 	if (!image) 
 	{
 		//std::cout << "Couldn't load texture." << std::endl;
-		image = osgDB::readImageFile(":Resources/noTexture.jpg");
+		image = osgDB::readImageFile(resourcePath + "Resources/noTexture.jpg");
 		osg::notify(osg::WARN) << "Couldn't load texture, loading default image file"  << std::endl;
 		if (!image) 
 		{
@@ -301,7 +301,7 @@ osg::ref_ptr<osg::Geode>  OSGScenery::DrawScenery(std::string heightMapFile, std
 	if (!image2) 
 	{
 		//std::cout << "Couldn't load texture." << std::endl;
-		image2 = osgDB::readImageFile(":Resources/terrain.jpg");
+		image2 = osgDB::readImageFile(resourcePath + "Resources/terrain.jpg");
 
 		osg::notify(osg::WARN) << "Couldn't load texture, loading default image file."  << std::endl;
 
@@ -341,7 +341,7 @@ void OSGScenery::GenerateHeightField(std::string heightMapFile,int resolutionX, 
 	{
 		//read the default image
 		osg::notify(osg::WARN) << "Couldn't load texture, loading default image file."  << std::endl;
-		heightMapImage = osgDB::readImageFile(":Resources/heightmap.jpg");
+		heightMapImage = osgDB::readImageFile(resourcePath + "Resources/heightmap.jpg");
 		if (!heightMapImage) 
 		{
 			osg::notify(osg::WARN) << "Couldn't load texture."  << std::endl;

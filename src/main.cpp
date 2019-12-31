@@ -12,10 +12,10 @@ int main(int argc, char *argv[])
 	// Creates the main application
 	QApplication app(argc, argv);
 
-	// Loads and displays the splash screen
-	QPixmap pixmap(":Resources/splash.png");
-	QSplashScreen splash(pixmap,Qt::WindowStaysOnTopHint);
-	splash.show();
+//	// Loads and displays the splash screen
+//	QPixmap pixmap(":Resources/splash.png");
+//	QSplashScreen splash(pixmap,Qt::WindowStaysOnTopHint);
+//	splash.show();
 	app.processEvents();
 
 	// Creates the OpenDrive structure
@@ -30,8 +30,8 @@ int main(int argc, char *argv[])
 
 
 
-	// Hides the splash screen
-	splash.finish(&mainWin);
+//	// Hides the splash screen
+//	splash.finish(&mainWin);
 
     // Runs the application
     return app.exec();
